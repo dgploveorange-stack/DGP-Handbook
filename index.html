@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DG Packaging Staff Handbook & HR Policy Centre</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 3px solid #b22222;
+      padding-bottom: 25px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: #b22222;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: #b22222;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 100;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #b22222;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+      padding: 12px 10px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff4c4c;
+      font-weight: 700;
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    section h2 {
+      color: #b22222;
+      margin-bottom: 15px;
+      border-left: 5px solid #b22222;
+      padding-left: 10px;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    section p, section ul {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      border-top: 2px solid #b22222;
+      color: #b22222;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+        line-height: 1.2;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .nav-links a {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
+    .form-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 200%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .form-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #b22222;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        display: block;
+      }
+    }
+      .faq-item {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      .faq-question {
+        width: 100%;
+        background: #fff;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #b22222;
+        padding: 12px 10px;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.2s ease;
+      }
+
+      .faq-question::after {
+        content: "▼";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      .faq-question.active::after {
+        transform: translateY(-50%) rotate(-180deg);
+      }
+
+      .faq-answer {
+        display: none;
+        padding: 8px 12px;
+        font-size: 0.95rem;
+        color: #444;
+        background-color: #f9f9f9;
+        border-left: 3px solid #b22222;
+      }
+
+      .faq-answer p {
+        margin-bottom: 8px;
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DG Packaging Staff Handbook & HR Policy Centre</h1>
+  </header>
+
+  <nav role="navigation" aria-label="Main site navigation">
+    <div class="nav-container">
+      <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileNav">☰</button>
+      <div class="nav-links" id="mobileNav">
+        <a href="#Handbook" class="active" aria-current="page">HR Handbook</a>
+        <a href="#FAQ">FAQ</a>
+        <a href="#policies">Appendix Policies</a>
+        <a href="#Updates">Policy Updates</a>
+        <a href="#Form">Form</a>
+        <a href="#feedback">Feedback</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="Handbook" class="active" role="region" aria-labelledby="handbook-title">
+      <h2 id="handbook-title">HR Handbook</h2>
+      <p>For full details on company policies, benefits, workplace conduct, and leave entitlements, refer to the official DG Packaging HR Handbook.</p>
+      <a href="/DGP Handbook with policy.pdf" target="_blank" aria-label="Open DG Packaging HR Handbook" style="display:block; margin-bottom:5px;">📄 Access the Handbook here: DGP Handbook</a>
+    </section>
+
+    <section id="FAQ">
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p>This section addresses common queries about workplace policies, leave, conduct, and HR procedures.</p>
+    
+      <input type="text" id="faq-search" placeholder="Search FAQs..." />
+        <div id="faq-container"></div>
+
+       <script src="faq.js"></script>
+
+    </section>
+
+  <section id="policies" role="region" aria-labelledby="policies-title">
+    <h2 id="policies-title">Appendix Policies</h2>
+    <p>Below are key HR policies. Click to open in a new window:</p>
+    <a href="/Appendix A Human Resource Policy- Code of Conduct.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix A: Human Resource Policy- Code of Conduct</a>
+    <a href="/Appendix B Human Resource Policy -Attendance and Leave.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix B: Human Resource Policy - Attendance and Leave</a>
+    <a href="/Appendix C Human Resource Policy - Compensation & Benefits.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix C: Human Resource Policy - Compensation & Benefits</a>
+    <a href="/Appendix D Human Resource Policy- Expenses Reimbursement.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix D: Human Resource Policy- Expenses Reimbursement</a>
+    <a href="/Appendix E Human Resource Policy- DG Packaging Safety & Security.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix E: Human Resource Policy- DG Packaging Safety & Security</a>
+    <a href="/Appendix F Human Resource Policy- DG Packaging Workplace Harassment & Anti-Discrimination.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix F: Human Resource Policy- DG Packaging Workplace Harassment & Anti-Discrimination</a>
+    <a href="/Appendix G Human Resource Policy- Disciplinary Action.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix G: Human Resource Policy- Disciplinary Action</a>
+    <a href="/Appendix H Human Resource Policy- DG Packaging Data Protection & Confidentiality.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix H: Human Resource Policy- DG Packaging Data Protection & Confidentiality</a>
+    <a href="/Appendix I Human Resource Policy- Conflict of Interest.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix I: Human Resource Policy- Conflict of Interest</a>
+    <a href="/Appendix J Human Resource Policy Termination of Employment.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix J: Human Resource Policy Termination of Employment</a>
+    <a href="/Appendix K Human Resource Policy Exit & Offboarding.pdf" target="_blank" style="display:block; margin-bottom:5px;">📄 Appendix K: Human Resource Policy Exit & Offboarding</a>
+  </section>
+
+    <section id="Updates" role="region" aria-labelledby="updates-title">
+      <h2 id="updates-title">Policy Updates</h2>
+      <p>No new updates. Please check back periodically or contact HR for clarification.</p>
+    </section>
+
+    <section id="Form" role="region" aria-labelledby="form-title">
+      <h2 id="form-title">Application Form</h2>
+      <p>Below are commonly used HR forms. Staff may download, print, and submit completed forms directly to HR.</p>
+        <a href="/HR -Employee Record Update Form.docx"
+   target="_blank"
+   style="display:block; margin-bottom:5px;">
+   📄 Application Employee Update Form
+</a>
+
+        
+    </section>
+
+    <section id="feedback" role="region" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Feedback</h2>
+      <div class="form-container">
+        <iframe src="https://form.jotform.com/252941313592457"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <a href="#Handbook" class="back-to-top" aria-label="Back to top of page">↑ Top</a>
+
+  <footer>
+    &copy; 2025 DG Packaging Pte Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.getElementById('mobileNav');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !expanded);
+    });
+    // Auto-hide mobile nav menu after selecting a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        // Hide the nav only if screen width is <= 768px
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('show');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (event) {
+      const isClickInside = navLinks.contains(event.target) || hamburger.contains(event.target);
+      if (!isClickInside && navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        document.querySelectorAll("nav a").forEach(nav => {
+          nav.classList.remove("active");
+          nav.removeAttribute("aria-current");
+        });
+
+        this.classList.add("active");
+        this.setAttribute("aria-current", "page");
+
+        document.querySelectorAll("main section").forEach(sec => sec.classList.remove("active"));
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) targetSection.classList.add("active");
+      });
+    });
+
+  </script>
+</body>
+</html>
